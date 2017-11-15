@@ -3,13 +3,9 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href='https://competeshark.com/contact'>Contact Sales for an API key</a>
 
 includes:
   - errors
@@ -19,80 +15,90 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Competeshark API. Competeshark provides a complete set of API endpoints for extracting competitive insights.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We've provided some code samples in the dark area to the right to get you started. You'll notice there are a number of language choices, you can switch between each by clicking on the language tab on the top.
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Have some feedback or questions that aren't covered in the documentation? Just send us an email [dev@competeshark.com](mailto:dev@competeshark.com)
 
 # Authentication
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+# Simply pass the Authorization header with each request
+curl "https://go.competeshark.com/api/v1/some_api_endpoint"
+  -u "api:YOUR_GENERATED_API_KEY"
+```
+```shell
+# Alternatively you may encode the api key as base64 and pass it as a header
+curl "https://go.competeshark.com/api/v1/some_api_endpoint"
+  -H "Authorization: Basic YXBpOllPVVJfR0VORVJBVEVEX0FQSV9LRVk=
 ```
 
-```javascript
-const kittn = require('kittn');
+> Make sure your replace `YOUR_GENERATED_API_KEY` with your own valid API key.
 
-let api = kittn.authorize('meowmeowmeow');
-```
+Competeshark uses API keys to authorize access to its API endpoints. You can create and manage API keys from our Integrations feature [https://go.competeshark.com/integrations] (https://go.competeshark.com/integrations)
 
-> Make sure to replace `meowmeowmeow` with your API key.
+All API endpoints are secured using a basic auth scheme with `api` as the username and your API key as the password.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+If you need to, you may construct and send the basic auth headers yourself. To do this perform the following steps:
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+1. build a string in the form `api:YOUR_GENERATED_API_KEY`
+2. Base64 encode the string
+3. Supply an `Authorization` header with content `Basic` followed by the Base64 encoded string. For example, the string `api:YOUR_GENERATED_API_KEY` encodes to `YXBpOllPVVJfR0VORVJBVEVEX0FQSV9LRVk=` in Base64, so you would make the request as follows in CURL.
 
-`Authorization: meowmeowmeow`
+<code>curl "https://go.competeshark.com/api/v1/some_api_endpoint" -H "Authorization: Basic YXBpOllPVVJfR0VORVJBVEVEX0FQSV9LRVk=</code>
+
+You may have a number of API keys for various integrations. API Keys should be kept private, if you feel a key has been comprimised, simply delete the comprimised key and generate a new one. Don't forget to the replace the API key in your integration.
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>YOUR_GENERATED_API_KEY</code> with your own valid API key.
 </aside>
 
-# Kittens
+# LANDSCAPES
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Get All Landscapes
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "https://go.competeshark.com/api/v1/landscapes"
+  -u "api:YOUR_GENERATED_API_KEY"
 ```
 
-```javascript
-const kittn = require('kittn');
+> This will return a JSON array of landscapes:
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+```json
+[
+  {
+    "id": "59f925d0f8894e5a020041a7",
+    "name": "My Landscape 1",
+  },
+  {
+    "id": "59d455c8f8894e896e0041a8",
+    "name": "My Landscape 2",
+  }
+  ...
+]
+```
+
+This endpoint retrieves all available landscapes for your account.
+
+### HTTP Request
+
+`GET https://go.competeshark.com/api/v1/landscapes`
+
+
+<aside class="success">
+Don't forget your Authorization header!
+</aside>
+
+# PERFORMANCE
+
+## Get Competitor load times
+
+```shell
+curl "https://go.competeshark.com/api/v1/performance?start=1510669397&end=1510761397&landscape=59d455c8f8894e896e0041a8"
+  -u "api:YOUR_GENERATED_API_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -100,140 +106,54 @@ let kittens = api.kittens.get();
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "url": "http://google.com",
+    "name": "Google",
+    "id": "59d455c8f8894e896e0041a7",
+    "timestamps": [
+      1510617600,
+      1510704000,
+      1510790400
+    ],
+    "loadTimes": [
+      -1,
+      3.2,
+      3.3
+    ]
   },
   {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+    "url": "http://bing.com",
+    "name": "Bing",
+    "id": "59d5ed3df8894e866e0041ab",
+    "timestamps": [
+      1510617600,
+      1510704000,
+      1510790400
+    ],
+    "loadTimes": [
+      1.2,
+      0.5,
+      0.7
+    ]
+  ...
 ]
 ```
 
-This endpoint retrieves all kittens.
+Retrieve the load times for all competitors in a given landscape. 
+
+This endpoint will automatically normalise the time period specified into 24-hour day precision represented in the output as unix timestamps at midight of all days over the given period. If more than one performance result exists in the 24 hour period, an average of all results is provided for a given day.
+
+Landscapes may be enumurated to obtain their ID's by using the [landscapes](#landscapes) endpoint
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
+`GET https://go.competeshark.com/api/v1/performance?start=<start_timestamp>&end=<end_timestamp>&landscape=<landscape_id>`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+Parameter | Mandatory? | Description
+--------- | ----------- | -----------
+start_timestamp | No | The start of the period from which to retrive performance data in the form of a unix timestamp
+end_timestamp | No | The end of the period from which to retrive performance data in the form of a unix timestamp
+landscape_id | Yes | The ID if the landscape from which to retrieve the performance data
 
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
 
