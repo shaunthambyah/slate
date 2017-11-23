@@ -233,6 +233,30 @@
               </ul>
           </li>
           <li>
+            <a href="#landscapedetails" class="toc-h1 toc-link" data-title="LANDSCAPEDETAILS">LANDSCAPEDETAILS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-landscape-details" class="toc-h2 toc-link" data-title="Get Landscape Details">Get Landscape Details</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#updates" class="toc-h1 toc-link" data-title="UPDATES">UPDATES</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-site-updates" class="toc-h2 toc-link" data-title="Get Site Updates">Get Site Updates</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#updatedetails" class="toc-h1 toc-link" data-title="UPDATEDETAILS">UPDATEDETAILS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-update-details" class="toc-h2 toc-link" data-title="Get Update Details">Get Update Details</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#performance" class="toc-h1 toc-link" data-title="PERFORMANCE">PERFORMANCE</a>
               <ul class="toc-list-h2">
                   <li>
@@ -316,6 +340,562 @@ You must replace <code>YOUR_GENERATED_API_KEY</code> with your own valid API key
 <aside class="success">
 Don't forget your Authorization header!
 </aside>
+<h1 id='landscapedetails'>LANDSCAPEDETAILS</h1><h2 id='get-landscape-details'>Get Landscape Details</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/landscapeDetails?landscape=59d455c8f8894e896e0041a8"</span>
+  -u <span class="s2">"api:YOUR_GENERATED_API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://brand_a.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brand A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59d455c8f8894e896e0041a9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"primary"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"lastProcessedScreenshot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/5a167b0bf8894ec53e0041af1511422751010185800.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lastScannedScreenshot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://go.competeshark.com/images/5a1692aef8894e03400041b9.png"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://brand_b.com/some_url"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brand B"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59d5ed3df8894e866e0041ac"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"primary"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"lastProcessedScreenshot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/59e59e26f8894e78340041ac1508220481089095300.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lastScreenshot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://go.competeshark.com/images/59edae8af8894e8d090041b4.png"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Provides a list of sites assosciated with a given Landscape ID. Each ID returned is in turn a unique reference for additional requests relative to each site/url.</p>
+
+<p>Landscapes may be enumurated to obtain their ID&#39;s by using the <a href="#landscapes">landscapes</a> endpoint</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://go.competeshark.com/api/v1/landscapeDetails?landscape=&lt;landscape_id&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>landscape_id</td>
+<td>Yes</td>
+<td>The ID if the landscape from which to retrieve the list of sites/urls</td>
+</tr>
+</tbody></table>
+<h3 id='returns'>Returns</h3>
+<p>An array of Site objects</p>
+<h3 id='return-values'>Return values</h3>
+<table><thead>
+<tr>
+<th>value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>The URL of a given site</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The friendly name of a given URL as defined on the Companies screen</td>
+</tr>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>The Unique identifier for this site</td>
+</tr>
+<tr>
+<td>Primary</td>
+<td>Boolean</td>
+<td>True if the URL is defined as primary for this landscape on the Companies screen. False if not. There can only be one Primary per landscape</td>
+</tr>
+<tr>
+<td>result</td>
+<td>Object</td>
+<td>Object containing the last processed screenshot and capture timestamp and last unprocessed screenshot and capture timestamp</td>
+</tr>
+<tr>
+<td></td>
+<td>lastProcessedScreenshot</td>
+<td>The screenshot of the last post processed capture</td>
+</tr>
+<tr>
+<td></td>
+<td>lastScreenshot</td>
+<td>The most recent sceenshot of this site/url</td>
+</tr>
+</tbody></table>
+<h1 id='updates'>UPDATES</h1><h2 id='get-site-updates'>Get Site Updates</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/updates?start=1510669397&amp;end=1510761397&amp;site=59d5ed3df8894e866e0041ac"</span>
+  -u <span class="s2">"api:YOUR_GENERATED_API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1511422768</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a167b30f8894ec53e0041cf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brand A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://brand_a.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"loadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">8615</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previousLoadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">8866</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"changeCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Content"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"favourite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"screenshots"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"before"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/59f02cb4f8894e41290041c61511422738018598000.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"after"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/5a167b0bf8894ec53e0041af1511422751010185800.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"beforeThumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/59f02cb6f8894e41290041cf1511422748052167800.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"afterThumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/5a167b0bf8894ec53e0041b71511422763059568800.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"averageLoadTimeForPeriod"</span><span class="p">:</span><span class="w"> </span><span class="mf">8973.2</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1508912353</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59f02ce1f8894e41290041d1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brand A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://brand_a.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"loadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">8866</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previousLoadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">11036</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"changeCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Content"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Experiment"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"favourite"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"screenshots"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"before"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/59eee832f8894e7e0a0041c01508912287079851100.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"after"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/59f02c97f8894e41290041af1508912310036864500.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"beforeThumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/59eee834f8894e7e0a0041c61508912308035898600.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"afterThumb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/59f02c97f8894e41290041b71508912347078501400.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"averageLoadTimeForPeriod"</span><span class="p">:</span><span class="w"> </span><span class="mf">8973.2</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Provides a list of updates for a given site by site ID within the specified time period. If no time period is specified, then all available updates are returned. Each ID returned is in turn a unique reference for additional requests relative to each result.</p>
+
+<p>Sites may be enumurated to obtain their ID&#39;s by using the <a href="#landscapedetails">landscape details</a> endpoint</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://go.competeshark.com/api/v1/updates?start=&lt;start_timestamp&gt;&amp;end=&lt;end_timestamp&gt;&amp;site=&lt;site_id&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_timestamp</td>
+<td>No</td>
+<td>The start of the period from which to retrive updates in the form of a unix timestamp</td>
+</tr>
+<tr>
+<td>end_timestamp</td>
+<td>No</td>
+<td>The end of the period from which to retrive updates in the form of a unix timestamp</td>
+</tr>
+<tr>
+<td>site_id</td>
+<td>Yes</td>
+<td>The ID of the site from which to retrieve the list of sites/urls</td>
+</tr>
+</tbody></table>
+<h3 id='returns-2'>Returns</h3>
+<p>An array of Result objects</p>
+<h3 id='return-values-2'>Return values</h3>
+<table><thead>
+<tr>
+<th>value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timestamp</td>
+<td>Integer</td>
+<td>The unix timestamp of this update in GMT</td>
+</tr>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>The Unique identifier for this update</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The friendly name of this site as defined on the Companies screen</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>The URL of this site</td>
+</tr>
+<tr>
+<td>loadTime</td>
+<td>Integer</td>
+<td>The load time of this update</td>
+</tr>
+<tr>
+<td>previousLoadTime</td>
+<td>Integer</td>
+<td>The load time of the last update for this site</td>
+</tr>
+<tr>
+<td>changeCategories</td>
+<td>Array</td>
+<td>A combined array of both system defined and user defined categories for this update</td>
+</tr>
+<tr>
+<td>favourite</td>
+<td>Boolean</td>
+<td>True if this update has been marked as a favourite on the Updates screen, false if not</td>
+</tr>
+<tr>
+<td>screenshots</td>
+<td>Object</td>
+<td>Object containing links to the before and after screenshots (and thumbnails) for this update</td>
+</tr>
+<tr>
+<td></td>
+<td>before</td>
+<td>Screenshot of the site before this update was captured</td>
+</tr>
+<tr>
+<td></td>
+<td>after</td>
+<td>Screenshot of the site at the time of the update</td>
+</tr>
+<tr>
+<td></td>
+<td>beforeThumb</td>
+<td>Thumbnail of the before screenshot</td>
+</tr>
+<tr>
+<td></td>
+<td>afterThumb</td>
+<td>Thumbnail of the after screenshot</td>
+</tr>
+</tbody></table>
+<h1 id='updatedetails'>UPDATEDETAILS</h1><h2 id='get-update-details'>Get Update Details</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/updateDetails?update=59f02ce1f8894e41290041d1"</span>
+  -u <span class="s2">"api:YOUR_GENERATED_API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"swipe"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://go.competeshark.com/public/59f02ce1f8894e41290041d1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"screenshots"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"before"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/59eee791f8894e4b0a0041c61508829207085294800.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"after"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/59eee812f8894e7e0a0041ae1508829237000223800.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"difference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imgcdn.competeshark.com/unsafe/59eee80ff8894e7e0a0041a81508829252053491400.png"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"addedLinks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://brand-a.com/added_link_1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Added link 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"added"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://brand-a.com/added_link_2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Added link 2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"added"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"removedLinks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://brand-a.com/removed_link_1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Removed link 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"removed"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://brand-a.com/removed_link_2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Removed link 2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"removed"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"changedLinks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://brand-a.com/changed_link_1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Changed Link 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"changed"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://brand-a.com/changed_link_2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Changed link 2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"changed"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"addedHeaders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"h1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Added header 1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"added"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Added header 2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"added"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"h2"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"h3"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"h4"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"h5"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"h6"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"removedHeaders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"h1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Removed header 1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"removed"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Removed header 2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"removed"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"h2"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"h3"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"h4"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"h5"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"h6"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"seo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description content added"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"added"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description content changed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"changed"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Provides detailed information on the given update.</p>
+
+<p>Updates may be enumurated to obtain their ID&#39;s by using the <a href="#updates">updates</a> endpoint</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://go.competeshark.com/api/v1/updateDetails?update=&lt;update_id&gt;</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>update_id</td>
+<td>Yes</td>
+<td>The ID of the update from which to retrieve the details</td>
+</tr>
+</tbody></table>
+<h3 id='returns-3'>Returns</h3>
+<p>Update result object</p>
+<h3 id='return-values-3'>Return values</h3>
+<table><thead>
+<tr>
+<th>value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>swiper</td>
+<td>String</td>
+<td>Link to the publically available swipe URL for this update</td>
+</tr>
+<tr>
+<td>screenshots</td>
+<td>Object</td>
+<td>Object containing links to the before and after screenshots (and thumbnails) for this update</td>
+</tr>
+<tr>
+<td></td>
+<td>before</td>
+<td>Screenshot of the site before this update was captured</td>
+</tr>
+<tr>
+<td></td>
+<td>after</td>
+<td>Screenshot of the site at the time of the update</td>
+</tr>
+<tr>
+<td></td>
+<td>difference</td>
+<td>Differenced image of the before vs after screenshot</td>
+</tr>
+<tr>
+<td>addedLinks</td>
+<td>Array</td>
+<td>Array of links that have been added in this update</td>
+</tr>
+<tr>
+<td></td>
+<td>href</td>
+<td>The link added</td>
+</tr>
+<tr>
+<td></td>
+<td>text</td>
+<td>The text anchor of the added link</td>
+</tr>
+<tr>
+<td></td>
+<td>state</td>
+<td>Added</td>
+</tr>
+<tr>
+<td>removedLinks</td>
+<td>Array</td>
+<td>Array of links that have been removed in this update</td>
+</tr>
+<tr>
+<td></td>
+<td>href</td>
+<td>The link removed</td>
+</tr>
+<tr>
+<td></td>
+<td>text</td>
+<td>The text anchor of the removed link</td>
+</tr>
+<tr>
+<td></td>
+<td>state</td>
+<td>Removed</td>
+</tr>
+<tr>
+<td>changedLinks</td>
+<td>Array</td>
+<td>Array of links that have been changed in this update</td>
+</tr>
+<tr>
+<td></td>
+<td>href</td>
+<td>The link changed</td>
+</tr>
+<tr>
+<td></td>
+<td>text</td>
+<td>The text anchor of the changed link</td>
+</tr>
+<tr>
+<td></td>
+<td>state</td>
+<td>Changed</td>
+</tr>
+<tr>
+<td>addedHeaders</td>
+<td>Array</td>
+<td>Array of headers that have been added in this update (broken down by h1 -&gt; h6)</td>
+</tr>
+<tr>
+<td></td>
+<td>h1</td>
+<td>H1 links added, array of objects containing &quot;text&quot; (text value of header tag) and &quot;state&quot; (added)</td>
+</tr>
+<tr>
+<td></td>
+<td>h2</td>
+<td>H2 links added, array of objects containing &quot;text&quot; (text value of header tag) and &quot;state&quot; (added)</td>
+</tr>
+<tr>
+<td></td>
+<td>h3</td>
+<td>H3 links added, array of objects containing &quot;text&quot; (text value of header tag) and &quot;state&quot; (added)</td>
+</tr>
+<tr>
+<td></td>
+<td>h4</td>
+<td>H4 links added, array of objects containing &quot;text&quot; (text value of header tag) and &quot;state&quot; (added)</td>
+</tr>
+<tr>
+<td></td>
+<td>h5</td>
+<td>H5 links added, array of objects containing &quot;text&quot; (text value of header tag) and &quot;state&quot; (added)</td>
+</tr>
+<tr>
+<td></td>
+<td>h6</td>
+<td>H6 links added, array of objects containing &quot;text&quot; (text value of header tag) and &quot;state&quot; (added)</td>
+</tr>
+<tr>
+<td>removedHeaders</td>
+<td>Array</td>
+<td>Array of headers that have been removed in this update (broken down by h1 -&gt; h6)</td>
+</tr>
+<tr>
+<td></td>
+<td>h1</td>
+<td>H1 links removed, array of objects containing &quot;text&quot; (text value of header tag) and &quot;state&quot; (removed)</td>
+</tr>
+<tr>
+<td></td>
+<td>h2</td>
+<td>H2 links removed, array of objects containing &quot;text&quot; (text value of header tag) and &quot;state&quot; (removed)</td>
+</tr>
+<tr>
+<td></td>
+<td>h3</td>
+<td>H3 links removed, array of objects containing &quot;text&quot; (text value of header tag) and &quot;state&quot; (removed)</td>
+</tr>
+<tr>
+<td></td>
+<td>h4</td>
+<td>H4 links removed, array of objects containing &quot;text&quot; (text value of header tag) and &quot;state&quot; (removed)</td>
+</tr>
+<tr>
+<td></td>
+<td>h5</td>
+<td>H5 links removed, array of objects containing &quot;text&quot; (text value of header tag) and &quot;state&quot; (removed)</td>
+</tr>
+<tr>
+<td></td>
+<td>h6</td>
+<td>H6 links removed, array of objects containing &quot;text&quot; (text value of header tag) and &quot;state&quot; (removed)</td>
+</tr>
+<tr>
+<td>seo</td>
+<td>Array</td>
+<td>Array of SEO changes that have been captured in this update</td>
+</tr>
+<tr>
+<td></td>
+<td>type</td>
+<td>The meta or title tag being optimised</td>
+</tr>
+<tr>
+<td></td>
+<td>content</td>
+<td>The content of the tag</td>
+</tr>
+<tr>
+<td></td>
+<td>state</td>
+<td>Changed/added/removed</td>
+</tr>
+</tbody></table>
 <h1 id='performance'>PERFORMANCE</h1><h2 id='get-competitor-load-times'>Get Competitor load times</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/performance?start=1510669397&amp;end=1510761397&amp;landscape=59d455c8f8894e896e0041a8"</span>
   -u <span class="s2">"api:YOUR_GENERATED_API_KEY"</span>
 </code></pre>
@@ -352,6 +932,7 @@ Don't forget your Authorization header!
       </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
       </span><span class="mf">0.7</span><span class="w">
     </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
   </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -360,9 +941,9 @@ Don't forget your Authorization header!
 <p>This endpoint will automatically normalise the time period specified into 24-hour day precision represented in the output as unix timestamps at midight of all days over the given period. If more than one performance result exists in the 24 hour period, an average of all results is provided for a given day.</p>
 
 <p>Landscapes may be enumurated to obtain their ID&#39;s by using the <a href="#landscapes">landscapes</a> endpoint</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://go.competeshark.com/api/v1/performance?start=&lt;start_timestamp&gt;&amp;end=&lt;end_timestamp&gt;&amp;landscape=&lt;landscape_id&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -384,6 +965,42 @@ Don't forget your Authorization header!
 <td>landscape_id</td>
 <td>Yes</td>
 <td>The ID if the landscape from which to retrieve the performance data</td>
+</tr>
+</tbody></table>
+<h3 id='returns-4'>Returns</h3>
+<p>An array of Sites containing their load times</p>
+<h3 id='return-values-4'>Return values</h3>
+<table><thead>
+<tr>
+<th>value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>The URL of a given site</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The friendly name of a given URL as defined on the Companies screen</td>
+</tr>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>The Unique identifier for this site</td>
+</tr>
+<tr>
+<td>timestamps</td>
+<td>Array</td>
+<td>Array of timestamps taken at midnight GMT starting from the midnight timestamp immediately after start_timestamp including every midnight timestamp until the midnight timestamp immediately preceeding end_timestamp. These timestamps represent a 24hour day. All loadtimes are averaged within that 24 hour period.</td>
+</tr>
+<tr>
+<td>loadTimes</td>
+<td>Array</td>
+<td>Array of load times corresponding to the timestamp of the equivalent index. Valid load times are in seconds in single precision and non-negative. Where no load time is available for a given timestamp, -1 is returned to indicate no value is available for that day as 0 is a valid value.</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
