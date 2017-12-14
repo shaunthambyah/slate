@@ -56,9 +56,9 @@ You may have a number of API keys for various integrations. API Keys should be k
 You must replace <code>YOUR_GENERATED_API_KEY</code> with your own valid API key.
 </aside>
 
-# LANDSCAPES
+# landscapes
 
-## Get All Landscapes
+## All Landscapes
 
 ```shell
 curl "https://go.competeshark.com/api/v1/landscapes"
@@ -92,9 +92,9 @@ This endpoint retrieves all available landscapes for your account.
 Don't forget your Authorization header!
 </aside>
 
-# LANDSCAPEDETAILS
+# landscapeDetails
 
-## Get Landscape Details
+## Details of a landscape
 
 ```shell
 curl "https://go.competeshark.com/api/v1/landscapeDetails?landscape=59d455c8f8894e896e0041a8"
@@ -141,7 +141,7 @@ Landscapes may be enumurated to obtain their ID's by using the [landscapes](#lan
 
 Parameter | Mandatory? | Description
 --------- | ----------- | -----------
-landscape_id | Yes | The ID if the landscape from which to retrieve the list of sites/urls
+landscape_id | Yes | The ID of the landscape from which to retrieve the list of sites/urls
 
 ### Returns
 
@@ -159,9 +159,9 @@ result | Object | Object containing the last processed screenshot and capture ti
  | lastProcessedScreenshot | The screenshot of the last post processed capture
  | lastScreenshot | The most recent sceenshot of this site/url
 
-# UPDATES
+# updates
 
-## Get Site Updates
+## Update summaries for a site
 
 ```shell
 curl "https://go.competeshark.com/api/v1/updates?start=1510669397&end=1510761397&site=59d5ed3df8894e866e0041ac"
@@ -253,9 +253,9 @@ screenshots | Object | Object containing links to the before and after screensho
  | beforeThumb | Thumbnail of the before screenshot
  | afterThumb | Thumbnail of the after screenshot
 
-# UPDATEDETAILS
+# updateDetails
 
-## Get Update Details
+## Details of an update
 
 ```shell
 curl "https://go.competeshark.com/api/v1/updateDetails?update=59f02ce1f8894e41290041d1"
@@ -420,9 +420,9 @@ seo | Array | Array of SEO changes that have been captured in this update
  | content | The content of the tag
  | state | Changed/added/removed
 
-# PERFORMANCE
+# performance
 
-## Get Competitor load times
+## Competitor load times
 
 ```shell
 curl "https://go.competeshark.com/api/v1/performance?start=1510669397&end=1510761397&landscape=59d455c8f8894e896e0041a8"
@@ -483,7 +483,7 @@ Parameter | Mandatory? | Description
 --------- | ----------- | -----------
 start_timestamp | No | The start of the period from which to retrive performance data in the form of a unix timestamp
 end_timestamp | No | The end of the period from which to retrive performance data in the form of a unix timestamp
-landscape_id | Yes | The ID if the landscape from which to retrieve the performance data
+landscape_id | Yes | The ID of the landscape from which to retrieve the performance data
 
 ### Returns
 
@@ -498,3 +498,262 @@ name | String | The friendly name of a given URL as defined on the Companies scr
 id | String | The Unique identifier for this site
 timestamps | Array | Array of timestamps taken at midnight GMT starting from the midnight timestamp immediately after start_timestamp including every midnight timestamp until the midnight timestamp immediately preceeding end_timestamp. These timestamps represent a 24hour day. All loadtimes are averaged within that 24 hour period.
 loadTimes | Array | Array of load times corresponding to the timestamp of the equivalent index. Valid load times are in seconds in single precision and non-negative. Where no load time is available for a given timestamp, -1 is returned to indicate no value is available for that day as 0 is a valid value.
+
+# changeCategories
+
+## Available change tags
+
+```shell
+curl "https://go.competeshark.com/api/v1/changeCategories?landscape=59d455c8f8894e896e0041a8"
+  -u "api:YOUR_GENERATED_API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": "58007323c048cb457701f39d",
+    "label": "Content",
+    "source": "system"
+  },
+  {
+    "id": "58007317c048cb814201f39a",
+    "label": "Optimisation",
+    "source": "system"
+  }
+  ...
+]
+```
+
+Retrieve a list of all the available change categories/tags for a given landscape.
+
+Some change categorisation (price, offer, experiment etc) is done by Competeshark. These will be listed with a source value of "system" in the output. Other categorisation of changes can be done by a user within the competeshark console via the updates screen, these tags will be listed as "user". Users have the ability to add as many custom tags as they wish to changes and these tags will be reflected across the landscape, but will not transfer to other landscapes. User and System tags are used for the change insights functionality.
+
+Landscapes may be enumurated to obtain their ID's by using the [landscapes](#landscapes) endpoint
+
+### HTTP Request
+
+`GET https://go.competeshark.com/api/v1/changeCategories?landscape=<landscape_id>`
+
+### URL Parameters
+
+Parameter | Mandatory? | Description
+--------- | ----------- | -----------
+landscape_id | Yes | The ID of the landscape from which to retrieve the categortisation tags
+
+### Returns
+
+An array of categorisation tags
+
+### Return values
+
+value | Type |Description
+--------- | ----------- | -----------
+id | String | The Unique identifier for this categorisation tag
+label | String | The friendly name of this categorisation tag
+source | String | "system" if generated by competeshark, "user" if added to this landscape by a user
+
+# changeCount
+
+## Category count for a change
+
+```shell
+curl "https://go.competeshark.com/api/v1/changeCount?start=1509953917&end=1512545917&landscape=59c21456c048cba03e1a8eff"
+  -u "api:YOUR_GENERATED_API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "url": "http://somebrand.com",
+        "name": "Some Brand",
+        "id": "5732ec1bc048cbac1997949f",
+        "changeCategories": [
+            {
+                "id": "58007376c048cb707601f39d",
+                "label": "Design",
+                "source": "system",
+                "count": 0
+            },
+            {
+                "id": "58007368c048cb0c4f01f39b",
+                "label": "Product",
+                "source": "system",
+                "count": 10
+            },
+            {
+                "id": "5800735bc048cba31501f398",
+                "label": "Pricing",
+                "source": "system",
+                "count": 0
+            },
+            {
+                "id": "5800733dc048cb0c4f01f399",
+                "label": "Offer",
+                "source": "system",
+                "count": 24
+            },
+            {
+                "id": "58007330c048cb347701f39e",
+                "label": "Experiment",
+                "source": "system",
+                "count": 0
+            },
+            {
+                "id": "58007323c048cb457701f39d",
+                "label": "Content",
+                "source": "system",
+                "count": 8
+            },
+            {
+                "id": "58007317c048cb814201f39a",
+                "label": "Optimisation",
+                "source": "system",
+                "count": 1
+            }
+        ]
+    },
+    ...
+  ]
+```
+
+Retrieve a list of sites in the given landscape with change counts for each over the specified period
+
+This endpoint summarises the counts of all changes fior a landscape over the specified period. Where user change categories exist for the landscape, they are also listed and counted here. This endpoint is representive of the content type analysis feature within change insights of the competeshark console.
+
+Landscapes may be enumurated to obtain their ID's by using the [landscapes](#landscapes) endpoint
+
+### HTTP Request
+
+`GET https://go.competeshark.com/api/v1/changeCount?start=<start_timestamp>&end=<end_timestamp>&landscape=<landscape_id>`
+
+### URL Parameters
+
+Parameter | Mandatory? | Description
+--------- | ----------- | -----------
+start_timestamp | No | The start of the period from which to retrive change count data in the form of a unix timestamp
+end_timestamp | No | The end of the period from which to retrive change count data in the form of a unix timestamp
+landscape_id | Yes | The ID of the landscape from which to retrieve the change count data
+
+
+### Returns
+
+An array of sites containing their change counts
+
+### Return values
+
+value | Type |Description
+--------- | ----------- | -----------
+url | String | The URL of a given site
+name | String | The friendly name of a given URL as defined on the Companies screen
+id | String | The Unique identifier for this site
+changeCategories | Array | Array of change categories 
+ | id | the change category ID 
+ | label | the friendly name of the change category
+ | source | system if this change category is generated by competeshark, user if this is a user generated change category
+ | count | the count of these changes over the specified period
+
+
+# changeFrequency
+
+## Frequency of change tags
+
+```shell
+curl "https://go.competeshark.com/api/v1/changeFrequency?start=1509953917&end=1512545917&category=58007323c048cb457701f39d&landscape=59c21456c048cba03e1a8eff"
+  -u "api:YOUR_GENERATED_API_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "url": "",
+        "name": "All competitors",
+        "id": "0",
+        "timestamps": [
+            1509926400,
+            1510012800,
+            1510099200,
+            1510185600
+        ],
+        "count": [
+            0,
+            2,
+            0,
+            1
+        ]
+    },
+    {
+        "url": "http://branda.com",
+        "name": "Brand A",
+        "id": "59d455c8f8894e896e0041a9",
+        "timestamps": [
+            1509926400,
+            1510012800,
+            1510099200,
+            1510185600
+        ],
+        "count": [
+            0,
+            1,
+            0,
+            1
+        ]
+    },
+    {
+        "url": "http://brandb.com",
+        "name": "Brand B",
+        "id": "59d5ed3df8894e866e0041ac",
+        "timestamps": [
+            1509926400,
+            1510012800,
+            1510099200,
+            1510185600
+        ],
+        "count": [
+            0,
+            1,
+            0,
+            0
+        ]
+    },
+```
+Retrieve the occurance of change categorisation tags for a given timestamp 
+
+This endpoint will automatically normalise the time period specified into 24-hour day precision represented in the output as unix timestamps at midight of all days over the given period. Counts correspond to the given timestamp and provide a total of all changes that contain the speficied change categorisation tag for that timestamp. If no categorisation tag is provided, then a count of all catgegorisation tags is returned. 
+
+The first item in the result set is a count of all competitors to provide a landscape view.
+
+Landscapes may be enumurated to obtain their ID's by using the [landscapes](#landscapes) endpoint
+Categories may be enumurated to obtain their ID's by using the [changeCategories](#changeCategories) endpoint
+
+### HTTP Request
+
+`GET https://go.competeshark.com/api/v1/changeFrequency?start=<start_timestamp>&end=<end_timestamp>&category=<category_id>&landscape=<landscape_id>`
+
+### URL Parameters
+
+Parameter | Mandatory? | Description
+--------- | ----------- | -----------
+start_timestamp | No | The start of the period from which to retrive change frequency data in the form of a unix timestamp
+end_timestamp | No | The end of the period from which to retrive change frequency data in the form of a unix timestamp
+category_id | No | The ID of the change category from which to retrieve the change frequency data
+landscape_id | Yes | The ID of the landscape from which to retrieve the change frequency data
+
+### Returns
+
+An array of Sites containing their change frequency with the first element a summary of the entire landscape as a cumulative total
+
+### Return values
+
+value | Type |Description
+--------- | ----------- | -----------
+url | String | The URL of a given site
+name | String | The friendly name of a given URL as defined on the Companies screen
+id | String | The Unique identifier for this site
+timestamps | Array | Array of timestamps taken at midnight GMT starting from the midnight timestamp immediately after start_timestamp including every midnight timestamp until the midnight timestamp immediately preceeding end_timestamp. These timestamps represent a 24hour day. All counts are cumulative within that 24 hour period.
+count | Array | Array of change counts corresponding to the timestamp of the equivalent index. Counts are a cumulative total of all occurances of the given change category (or all categories if none is specified) for the 24 hour period of the corresponding index.
