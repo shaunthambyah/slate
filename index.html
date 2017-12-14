@@ -225,42 +225,66 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#landscapes" class="toc-h1 toc-link" data-title="LANDSCAPES">LANDSCAPES</a>
+            <a href="#landscapes" class="toc-h1 toc-link" data-title="landscapes">landscapes</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-landscapes" class="toc-h2 toc-link" data-title="Get All Landscapes">Get All Landscapes</a>
+                    <a href="#all-landscapes" class="toc-h2 toc-link" data-title="All Landscapes">All Landscapes</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#landscapedetails" class="toc-h1 toc-link" data-title="LANDSCAPEDETAILS">LANDSCAPEDETAILS</a>
+            <a href="#landscapedetails" class="toc-h1 toc-link" data-title="landscapeDetails">landscapeDetails</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-landscape-details" class="toc-h2 toc-link" data-title="Get Landscape Details">Get Landscape Details</a>
+                    <a href="#details-of-a-landscape" class="toc-h2 toc-link" data-title="Details of a landscape">Details of a landscape</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#updates" class="toc-h1 toc-link" data-title="UPDATES">UPDATES</a>
+            <a href="#updates" class="toc-h1 toc-link" data-title="updates">updates</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-site-updates" class="toc-h2 toc-link" data-title="Get Site Updates">Get Site Updates</a>
+                    <a href="#update-summaries-for-a-site" class="toc-h2 toc-link" data-title="Update summaries for a site">Update summaries for a site</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#updatedetails" class="toc-h1 toc-link" data-title="UPDATEDETAILS">UPDATEDETAILS</a>
+            <a href="#updatedetails" class="toc-h1 toc-link" data-title="updateDetails">updateDetails</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-update-details" class="toc-h2 toc-link" data-title="Get Update Details">Get Update Details</a>
+                    <a href="#details-of-an-update" class="toc-h2 toc-link" data-title="Details of an update">Details of an update</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#performance" class="toc-h1 toc-link" data-title="PERFORMANCE">PERFORMANCE</a>
+            <a href="#performance" class="toc-h1 toc-link" data-title="performance">performance</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-competitor-load-times" class="toc-h2 toc-link" data-title="Get Competitor load times">Get Competitor load times</a>
+                    <a href="#competitor-load-times" class="toc-h2 toc-link" data-title="Competitor load times">Competitor load times</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#changecategories" class="toc-h1 toc-link" data-title="changeCategories">changeCategories</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#available-change-tags" class="toc-h2 toc-link" data-title="Available change tags">Available change tags</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#changecount" class="toc-h1 toc-link" data-title="changeCount">changeCount</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#category-count-for-a-change" class="toc-h2 toc-link" data-title="Category count for a change">Category count for a change</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#changefrequency" class="toc-h1 toc-link" data-title="changeFrequency">changeFrequency</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#frequency-of-change-tags" class="toc-h2 toc-link" data-title="Frequency of change tags">Frequency of change tags</a>
                   </li>
               </ul>
           </li>
@@ -315,7 +339,7 @@ curl <span class="s2">"https://go.competeshark.com/api/v1/some_api_endpoint"</sp
 <aside class="notice">
 You must replace <code>YOUR_GENERATED_API_KEY</code> with your own valid API key.
 </aside>
-<h1 id='landscapes'>LANDSCAPES</h1><h2 id='get-all-landscapes'>Get All Landscapes</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/landscapes"</span>
+<h1 id='landscapes'>landscapes</h1><h2 id='all-landscapes'>All Landscapes</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/landscapes"</span>
   -u <span class="s2">"api:YOUR_GENERATED_API_KEY"</span>
 </code></pre>
 <blockquote>
@@ -340,7 +364,7 @@ You must replace <code>YOUR_GENERATED_API_KEY</code> with your own valid API key
 <aside class="success">
 Don't forget your Authorization header!
 </aside>
-<h1 id='landscapedetails'>LANDSCAPEDETAILS</h1><h2 id='get-landscape-details'>Get Landscape Details</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/landscapeDetails?landscape=59d455c8f8894e896e0041a8"</span>
+<h1 id='landscapedetails'>landscapeDetails</h1><h2 id='details-of-a-landscape'>Details of a landscape</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/landscapeDetails?landscape=59d455c8f8894e896e0041a8"</span>
   -u <span class="s2">"api:YOUR_GENERATED_API_KEY"</span>
 </code></pre>
 <blockquote>
@@ -386,7 +410,7 @@ Don't forget your Authorization header!
 <tr>
 <td>landscape_id</td>
 <td>Yes</td>
-<td>The ID if the landscape from which to retrieve the list of sites/urls</td>
+<td>The ID of the landscape from which to retrieve the list of sites/urls</td>
 </tr>
 </tbody></table>
 <h3 id='returns'>Returns</h3>
@@ -435,7 +459,7 @@ Don't forget your Authorization header!
 <td>The most recent sceenshot of this site/url</td>
 </tr>
 </tbody></table>
-<h1 id='updates'>UPDATES</h1><h2 id='get-site-updates'>Get Site Updates</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/updates?start=1510669397&amp;end=1510761397&amp;site=59d5ed3df8894e866e0041ac"</span>
+<h1 id='updates'>updates</h1><h2 id='update-summaries-for-a-site'>Update summaries for a site</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/updates?start=1510669397&amp;end=1510761397&amp;site=59d5ed3df8894e866e0041ac"</span>
   -u <span class="s2">"api:YOUR_GENERATED_API_KEY"</span>
 </code></pre>
 <blockquote>
@@ -589,7 +613,7 @@ Don't forget your Authorization header!
 <td>Thumbnail of the after screenshot</td>
 </tr>
 </tbody></table>
-<h1 id='updatedetails'>UPDATEDETAILS</h1><h2 id='get-update-details'>Get Update Details</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/updateDetails?update=59f02ce1f8894e41290041d1"</span>
+<h1 id='updatedetails'>updateDetails</h1><h2 id='details-of-an-update'>Details of an update</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/updateDetails?update=59f02ce1f8894e41290041d1"</span>
   -u <span class="s2">"api:YOUR_GENERATED_API_KEY"</span>
 </code></pre>
 <blockquote>
@@ -896,7 +920,7 @@ Don't forget your Authorization header!
 <td>Changed/added/removed</td>
 </tr>
 </tbody></table>
-<h1 id='performance'>PERFORMANCE</h1><h2 id='get-competitor-load-times'>Get Competitor load times</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/performance?start=1510669397&amp;end=1510761397&amp;landscape=59d455c8f8894e896e0041a8"</span>
+<h1 id='performance'>performance</h1><h2 id='competitor-load-times'>Competitor load times</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/performance?start=1510669397&amp;end=1510761397&amp;landscape=59d455c8f8894e896e0041a8"</span>
   -u <span class="s2">"api:YOUR_GENERATED_API_KEY"</span>
 </code></pre>
 <blockquote>
@@ -964,7 +988,7 @@ Don't forget your Authorization header!
 <tr>
 <td>landscape_id</td>
 <td>Yes</td>
-<td>The ID if the landscape from which to retrieve the performance data</td>
+<td>The ID of the landscape from which to retrieve the performance data</td>
 </tr>
 </tbody></table>
 <h3 id='returns-4'>Returns</h3>
@@ -1001,6 +1025,348 @@ Don't forget your Authorization header!
 <td>loadTimes</td>
 <td>Array</td>
 <td>Array of load times corresponding to the timestamp of the equivalent index. Valid load times are in seconds in single precision and non-negative. Where no load time is available for a given timestamp, -1 is returned to indicate no value is available for that day as 0 is a valid value.</td>
+</tr>
+</tbody></table>
+<h1 id='changecategories'>changeCategories</h1><h2 id='available-change-tags'>Available change tags</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/changeCategories?landscape=59d455c8f8894e896e0041a8"</span>
+  -u <span class="s2">"api:YOUR_GENERATED_API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58007323c048cb457701f39d"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Content"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58007317c048cb814201f39a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Optimisation"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Retrieve a list of all the available change categories/tags for a given landscape.</p>
+
+<p>Some change categorisation (price, offer, experiment etc) is done by Competeshark. These will be listed with a source value of &quot;system&quot; in the output. Other categorisation of changes can be done by a user within the competeshark console via the updates screen, these tags will be listed as &quot;user&quot;. Users have the ability to add as many custom tags as they wish to changes and these tags will be reflected across the landscape, but will not transfer to other landscapes. User and System tags are used for the change insights functionality.</p>
+
+<p>Landscapes may be enumurated to obtain their ID&#39;s by using the <a href="#landscapes">landscapes</a> endpoint</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://go.competeshark.com/api/v1/changeCategories?landscape=&lt;landscape_id&gt;</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>landscape_id</td>
+<td>Yes</td>
+<td>The ID of the landscape from which to retrieve the categortisation tags</td>
+</tr>
+</tbody></table>
+<h3 id='returns-5'>Returns</h3>
+<p>An array of categorisation tags</p>
+<h3 id='return-values-5'>Return values</h3>
+<table><thead>
+<tr>
+<th>value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>The Unique identifier for this categorisation tag</td>
+</tr>
+<tr>
+<td>label</td>
+<td>String</td>
+<td>The friendly name of this categorisation tag</td>
+</tr>
+<tr>
+<td>source</td>
+<td>String</td>
+<td>&quot;system&quot; if generated by competeshark, &quot;user&quot; if added to this landscape by a user</td>
+</tr>
+</tbody></table>
+<h1 id='changecount'>changeCount</h1><h2 id='category-count-for-a-change'>Category count for a change</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/changeCount?start=1509953917&amp;end=1512545917&amp;landscape=59c21456c048cba03e1a8eff"</span>
+  -u <span class="s2">"api:YOUR_GENERATED_API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://somebrand.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some Brand"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5732ec1bc048cbac1997949f"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"changeCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58007376c048cb707601f39d"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Design"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58007368c048cb0c4f01f39b"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5800735bc048cba31501f398"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pricing"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5800733dc048cb0c4f01f399"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Offer"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58007330c048cb347701f39e"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Experiment"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58007323c048cb457701f39d"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Content"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58007317c048cb814201f39a"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Optimisation"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Retrieve a list of sites in the given landscape with change counts for each over the specified period</p>
+
+<p>This endpoint summarises the counts of all changes fior a landscape over the specified period. Where user change categories exist for the landscape, they are also listed and counted here. This endpoint is representive of the content type analysis feature within change insights of the competeshark console.</p>
+
+<p>Landscapes may be enumurated to obtain their ID&#39;s by using the <a href="#landscapes">landscapes</a> endpoint</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://go.competeshark.com/api/v1/changeCount?start=&lt;start_timestamp&gt;&amp;end=&lt;end_timestamp&gt;&amp;landscape=&lt;landscape_id&gt;</code></p>
+<h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_timestamp</td>
+<td>No</td>
+<td>The start of the period from which to retrive change count data in the form of a unix timestamp</td>
+</tr>
+<tr>
+<td>end_timestamp</td>
+<td>No</td>
+<td>The end of the period from which to retrive change count data in the form of a unix timestamp</td>
+</tr>
+<tr>
+<td>landscape_id</td>
+<td>Yes</td>
+<td>The ID of the landscape from which to retrieve the change count data</td>
+</tr>
+</tbody></table>
+<h3 id='returns-6'>Returns</h3>
+<p>An array of sites containing their change counts</p>
+<h3 id='return-values-6'>Return values</h3>
+<table><thead>
+<tr>
+<th>value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>The URL of a given site</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The friendly name of a given URL as defined on the Companies screen</td>
+</tr>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>The Unique identifier for this site</td>
+</tr>
+<tr>
+<td>changeCategories</td>
+<td>Array</td>
+<td>Array of change categories</td>
+</tr>
+<tr>
+<td></td>
+<td>id</td>
+<td>the change category ID</td>
+</tr>
+<tr>
+<td></td>
+<td>label</td>
+<td>the friendly name of the change category</td>
+</tr>
+<tr>
+<td></td>
+<td>source</td>
+<td>system if this change category is generated by competeshark, user if this is a user generated change category</td>
+</tr>
+<tr>
+<td></td>
+<td>count</td>
+<td>the count of these changes over the specified period</td>
+</tr>
+</tbody></table>
+<h1 id='changefrequency'>changeFrequency</h1><h2 id='frequency-of-change-tags'>Frequency of change tags</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://go.competeshark.com/api/v1/changeFrequency?start=1509953917&amp;end=1512545917&amp;category=58007323c048cb457701f39d&amp;landscape=59c21456c048cba03e1a8eff"</span>
+  -u <span class="s2">"api:YOUR_GENERATED_API_KEY"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All competitors"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1509926400</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1510012800</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1510099200</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1510185600</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://branda.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brand A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59d455c8f8894e896e0041a9"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1509926400</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1510012800</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1510099200</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1510185600</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://brandb.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brand B"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59d5ed3df8894e866e0041ac"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1509926400</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1510012800</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1510099200</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1510185600</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="mi">0</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span></code></pre>
+<p>Retrieve the occurance of change categorisation tags for a given timestamp </p>
+
+<p>This endpoint will automatically normalise the time period specified into 24-hour day precision represented in the output as unix timestamps at midight of all days over the given period. Counts correspond to the given timestamp and provide a total of all changes that contain the speficied change categorisation tag for that timestamp. If no categorisation tag is provided, then a count of all catgegorisation tags is returned. </p>
+
+<p>The first item in the result set is a count of all competitors to provide a landscape view.</p>
+
+<p>Landscapes may be enumurated to obtain their ID&#39;s by using the <a href="#landscapes">landscapes</a> endpoint
+Categories may be enumurated to obtain their ID&#39;s by using the <a href="#changeCategories">changeCategories</a> endpoint</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://go.competeshark.com/api/v1/changeFrequency?start=&lt;start_timestamp&gt;&amp;end=&lt;end_timestamp&gt;&amp;category=&lt;category_id&gt;&amp;landscape=&lt;landscape_id&gt;</code></p>
+<h3 id='url-parameters-7'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mandatory?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_timestamp</td>
+<td>No</td>
+<td>The start of the period from which to retrive change frequency data in the form of a unix timestamp</td>
+</tr>
+<tr>
+<td>end_timestamp</td>
+<td>No</td>
+<td>The end of the period from which to retrive change frequency data in the form of a unix timestamp</td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>No</td>
+<td>The ID of the change category from which to retrieve the change frequency data</td>
+</tr>
+<tr>
+<td>landscape_id</td>
+<td>Yes</td>
+<td>The ID of the landscape from which to retrieve the change frequency data</td>
+</tr>
+</tbody></table>
+<h3 id='returns-7'>Returns</h3>
+<p>An array of Sites containing their change frequency with the first element a summary of the entire landscape as a cumulative total</p>
+<h3 id='return-values-7'>Return values</h3>
+<table><thead>
+<tr>
+<th>value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>The URL of a given site</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The friendly name of a given URL as defined on the Companies screen</td>
+</tr>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>The Unique identifier for this site</td>
+</tr>
+<tr>
+<td>timestamps</td>
+<td>Array</td>
+<td>Array of timestamps taken at midnight GMT starting from the midnight timestamp immediately after start_timestamp including every midnight timestamp until the midnight timestamp immediately preceeding end_timestamp. These timestamps represent a 24hour day. All counts are cumulative within that 24 hour period.</td>
+</tr>
+<tr>
+<td>count</td>
+<td>Array</td>
+<td>Array of change counts corresponding to the timestamp of the equivalent index. Counts are a cumulative total of all occurances of the given change category (or all categories if none is specified) for the 24 hour period of the corresponding index.</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
